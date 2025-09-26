@@ -31,13 +31,9 @@ Choose difficulty level (A=Easy, B=Medium, C=Hard): A
 Who is the first robin?
 
 A. Robin Padilla
-
 B. Damian Wayne
-
 C. Jason Todd
-
 D. Richard Grayson
-
 Choose a letter: D
 
 CORRECT! SCORE IS NOW: 1
