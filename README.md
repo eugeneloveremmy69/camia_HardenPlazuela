@@ -10,11 +10,11 @@ This is a gameshow about Dane and Emmy's fandoms and interests that cures boredo
 - Checks if the answer is correct
 - Adds point if the answer is correct
 
-  ## How to Run the Program
-  1. Make sure you have Python installed.
-  2. Download the file 'gameshow.py'.
-  3. Open a terminal or command prompt.
-  4. Run the program by pressing F5 or clicking 'Run'.
-  5. Follow the on-screen instructions to pick a fandom.
+## How to Run the Program
+1. Make sure you have Python installed.
+2. Download the file 'gameshow.py'.
+3. Open a terminal or command prompt.
+4. Run the program by pressing F5 or clicking 'Run'.
+5. Follow the on-screen instructions to pick a fandom.
  
-  ## Example Output
+## Example Output
