@@ -23,16 +23,21 @@ Choose a fandom:
 1. DC
 2. F1
 3. Wednesday
-4 End game
+4. End game
 Choose a number: 1
 
 Choose difficulty level (A=Easy, B=Medium, C=Hard): A
 
 Who is the first robin?
+
 A. Robin Padilla
+
 B. Damian Wayne
+
 C. Jason Todd
+
 D. Richard Grayson
+
 Choose a letter: D
 
 CORRECT! SCORE IS NOW: 1
