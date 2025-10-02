@@ -1,7 +1,6 @@
-Submitted: Tuesday, 12 August 2025, 8:57 AM
-
-Plazuela, Harden
-
 Title: DANE AND EMMY'S GAME SHOW QUIZ
-
 Problem statement: Most games are not letting people learn anything. In our game, we give funfacts and lets the user enjoy.
+Project Objectives: To make a fun trivia game that people can play
+Planned Features: Point system
+Planned Inputs and Outputs: The user will input which fandom they want to answer a question of and they will choose a difficult and the code will output the question and the user will input the answer and our code will output if they are correct or wrong and their points.
+Logic Plan: Flowchart is in our repository
