@@ -1,6 +1,9 @@
 Title: DANE AND EMMY'S GAME SHOW QUIZ
 Problem statement: Most games are not letting people learn anything. In our game, we give funfacts and lets the user enjoy. 
-Project Objectives: To make a fun trivia game that people can play in their free time to cure boredom. We will use function blocks to make our code neater and easy to understand. We will make the questions fun and tricky to attract users. We will add a timer for screen time so that our users don't get addicted. 
+Project Objectives: To make a fun trivia game that people can play in their free time to cure boredom. We will use function blocks to make our code neater and 
+easy to understand. We will make the questions fun and tricky to attract users. We will add a timer for screen time so that our users don't get addicted. 
 Planned Features: Point system, Being able to choose the fandom, Being able to choose the difficulty of the question. 
-Planned Inputs and Outputs: The user will input which fandom they want to answer a question of and they will choose a difficult and the code will output the question and the user will input the answer and then the code will check the answer and adds a point if answered correct, and our code will output if they are correct or wrong and their total amount of points.
+Planned Inputs and Outputs: The user will input which fandom they want to answer a question of and they will choose a difficult and the 
+code will output the question and the user will input the answer and then the code will check the answer and adds a point if answered correct, 
+and our code will output if they are correct or wrong and their total amount of points.
 Logic Plan: Flowchart is in included in our repository
