@@ -4,11 +4,9 @@
 This is a gameshow about Dane and Emmy's fandoms and interests that cures boredom. The fandoms we used are DC, It asks questions and gives points everytime you get a questions correct.
 
 ## Features
-- Enter the fandom you would like to answer a question from
-- Enter the difficulty
-- Enter your answer to the question
-- Checks if the answer is correct
-- Adds point if the answer is correct
+- Being able to choose the fandom and difficulty of the question (Question selection)
+- Being able to enter your answer and checking if it is correct or wrong (Answer submission)
+- Being able to get 1 points per correct question (Point system)
 
 ## How to Run the Program
 1. Make sure you have Python installed.
