@@ -30,48 +30,48 @@ Choose a number: 1
 
 --- DC QUIZ START ---
 
-Who is the first Robin?
-A. Robin Padilla
-B. Damian Wayne
-C. Jason Todd
-D. Dick Grayson
-Answer: d
+Who is the first Robin?  
+A. Robin Padilla  
+B. Damian Wayne  
+C. Jason Todd  
+D. Dick Grayson  
+Answer: d  
 
 Correct!
 
-Who is Tim Drake's current partner?
-A. Stephanie Brown
-B. Bernard Dowd
-C. Kon-El
-D. Jason Todd
-Answer: b
+Who is Tim Drake's current partner?  
+A. Stephanie Brown  
+B. Bernard Dowd  
+C. Kon-El  
+D. Jason Todd  
+Answer: b  
 
 Correct!
 
-Who created Superboy (Kon-El)?
-A. Batman
-B. Lex Luthor
-C. Superman
-D. Lois Lane
-Answer: b
+Who created Superboy (Kon-El)?  
+A. Batman  
+B. Lex Luthor  
+C. Superman  
+D. Lois Lane  
+Answer: b  
 
 Correct!
 
-Who is Clark Kent's first love?
-A. Cassandra Cain
-B. Lois Lane
-C. Lana Lang
-D. Lauren Lida
-Answer: c
+Who is Clark Kent's first love?  
+A. Cassandra Cain  
+B. Lois Lane  
+C. Lana Lang  
+D. Lauren Lida  
+Answer: c  
 
 Correct!
 
-Who is Diana's godly parent in New 52 universe?
-A. Zeus
-B. Hades
-C. Apollo
-D. Hermes
-Answer: a
+Who is Diana's godly parent in New 52 universe?  
+A. Zeus  
+B. Hades  
+C. Apollo  
+D. Hermes  
+Answer: a  
 
 Correct!
 
