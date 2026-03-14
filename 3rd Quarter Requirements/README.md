@@ -5,7 +5,9 @@ This is a gameshow about Dane and Emmy's fandoms and interests that cures boredo
 
 ## Features
 -Being able to choose the fandom you will start with and answer 5 randomized questions per fandom.
+
 -Being able to enter your answer, have it checked if it is correct or wrong, and receive 1 point per correct question. 
+
 -Being able to have the option to quit after every fandom and see the final score and accuracy percent.
 
 
