@@ -1,0 +1,346 @@
+import tkinter as tk
+from PIL import Image, ImageTk
+import random
+
+root = tk.Tk()
+root.title("Quiz Game")
+root.geometry("1920x1080")
+
+bg_label = tk.Label(root)
+bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+def set_bg(path):
+    global bg_img
+    img = Image.open(path)
+    img = img.resize((1920,1080))
+    bg_img = ImageTk.PhotoImage(img)
+    bg_label.config(image=bg_img)
+
+def clear():
+    for w in root.winfo_children():
+        if w != bg_label:
+            w.destroy()
+
+def box():
+    f = tk.Frame(root, bg="white", padx=40, pady=40)
+    f.place(relx=0.5, rely=0.5, anchor="center")
+    return f
+
+score = 0
+total_questions = 0
+
+dc_score = 0
+dc_total = 0
+
+f1_score = 0
+f1_total = 0
+
+valorant_score = 0
+valorant_total = 0
+
+completed_fandoms = set()
+
+dcquestions = [
+    ("Who is the first Robin?", ("D","d","D.","d.")),
+    ("Who created Superboy (Kon-El)?", ("B","b","B.","b.")),
+    ("Who is Clark Kent's first love?", ("C","c","C.","c.")),
+    ("Who is Tim Drake's current partner?", ("B","b","B.","b.")),
+    ("Who is Diana's godly parent in New 52 universe?", ("A","a","A.","a."))
+]
+
+dcanswers = [
+    ["A. Robin Padilla","B. Damian Wayne","C. Jason Todd","D. Dick Grayson"],
+    ["A. Batman","B. Lex Luthor","C. Superman","D. Lois Lane"],
+    ["A. Cassandra Cain","B. Lois Lane","C. Lana Lang","D. Lauren Lida"],
+    ["A. Stephanie Brown","B. Bernard Dowd","C. Kon-El","D. Jason Todd"],
+    ["A. Zeus","B. Hades","C. Apollo","D. Hermes"]
+]
+
+f1_questions = [
+    ("Who won the first-ever Formula 1 World Championship in 1950?", ("A","a","A.","a.")),
+    ("What is the name of the F1 car's protective structure that is designed to protect the driver's head in the event of an accident?", ("C","c","C.","c.")),
+    ("Which team has won the most Constructors' Championships in Formula 1 history?", ("A","a","A.","a.")),
+    ("What does DRS stand for?", ("C","c","C.","c.")),
+    ("As of September 26, 2025, how many grand prix wins does Max Verstappen hold?", ("B","b","B.","b."))
+]
+
+f1_answers = [
+    ["A. Giuseppe Farina","B. Max Verstappen","C. Lewis Hamilton","D. Daniel Ricciardo"],
+    ["A. Speed trap","B. Semi-automatic gearbox","C. Halo","D. Aerodynamics control unit"],
+    ["A. Ferrari","B. Williams","C. Redbull","D. McLaren"],
+    ["A. Drift Reduction System","B. Daniel Ricciardo Supremacy","C. Drag Reduction System","D. Diddy Realm System"],
+    ["A. 66","B. 67","C. 68","D. 69"]
+]
+
+valorant_questions = [
+    ("Who made Omen into a phantom?", ("D","d","D.","d.")),
+    ("Who is the blood-related sister of Phoenix?", ("A","a","A.","a.")),
+    ("What company developed and published Valorant?", ("C","c","C.","c.")),
+    ("What was Valorant's codename during its development phase?", ("B","b","B.","b.")),
+    ("What are the different roles of agents", ("C","c","C.","c."))
+]
+
+valorant_answers = [
+    ["A. Mary Adayemi","B. Han Sunwoo","C. Li Zhao Yu","D. Sabine Callas"],
+    ["A. Mary Adayemi","B. Han Sunwoo","C. Li Zhao Yu","D. Sabine Callas"],
+    ["A. League of Legends", "B. Rito games", "C. Riot Games", "D. Mojang"],
+    ["A. Project Protect","B. Project A","C. Balorant","D. Shooter"],
+    ["A. Sentiment, Duels, Controllers, Intimidators", "B. Sediments, Duelists, Comrades, Initiators", "C. Sentinels, Duelists, Controllers, Initiators", "D. TenZ, Brawk, Emmy, Dane"]
+]
+
+def reset_game():
+    global score,total_questions,dc_score,dc_total,f1_score,f1_total,valorant_score,valorant_total,completed_fandoms
+    score = total_questions = 0
+    dc_score = dc_total = 0
+    f1_score = f1_total = 0
+    valorant_score = valorant_total = 0
+    completed_fandoms = set()
+
+def show_start():
+    clear()
+    set_bg("menu.png")
+    b = box()
+
+    tk.Label(b,text="WELCOME TO DANE AND EMMY'S GAME SHOW QUIZ!!!",bg="white",font=("Arial",20,"bold")).pack(pady=10)
+    tk.Button(b,text="Play Game",command=show_fandom,font=("Arial",14)).pack(pady=5)
+    tk.Button(b,text="Admin",command=admin_login,font=("Arial",14)).pack(pady=5)
+
+def admin_login():
+    clear()
+    set_bg("admin.png")
+    b = box()
+
+    tk.Label(b,text="Username:",bg="white",font=("Arial",14)).pack()
+    user = tk.Entry(b)
+    user.pack()
+
+    tk.Label(b,text="Password:",bg="white",font=("Arial",14)).pack()
+    pw = tk.Entry(b, show="*")
+    pw.pack()
+
+    def check():
+        if (user.get()=="charlesleclerc67" and pw.get()=="lestappen4ever") or \
+           (user.get()=="therealjasontodd" and pw.get()=="kaboomjason"):
+            admin_menu()
+        else:
+            tk.Label(b,text="Wrong Username or Password!",fg="red",bg="white",font=("Arial",12)).pack()
+
+    tk.Button(b,text="Login",command=check,font=("Arial",14)).pack(pady=5)
+    tk.Button(b,text="Back",command=show_start,font=("Arial",14)).pack(pady=5)
+
+def admin_menu():
+    clear()
+    set_bg("admin.png")
+    b = box()
+
+    tk.Label(b,text="ADMIN PANEL",bg="white",font=("Arial",20,"bold")).pack(pady=10)
+    tk.Button(b,text="Add Question",command=add_q,font=("Arial",14)).pack(pady=5)
+    tk.Button(b,text="Remove Question",command=remove_q,font=("Arial",14)).pack(pady=5)
+    tk.Button(b,text="Back",command=show_start,font=("Arial",14)).pack(pady=5)
+
+def add_q():
+    clear()
+    set_bg("admin.png")
+    b = box()
+
+    tk.Label(b,text="Fandom (DC/F1/Valorant):",bg="white",font=("Arial",14)).pack()
+    fandom = tk.Entry(b); fandom.pack()
+
+    tk.Label(b,text="Question:",bg="white",font=("Arial",14)).pack()
+    q = tk.Entry(b); q.pack()
+
+    tk.Label(b,text="Correct Answer (A/B/C/D):",bg="white",font=("Arial",14)).pack()
+    correct = tk.Entry(b); correct.pack()
+
+    labels = ["Choice A:", "Choice B:", "Choice C:", "Choice D:"]
+    entries = []
+
+    for text in labels:
+        tk.Label(b,text=text,bg="white",font=("Arial",14)).pack()
+        e = tk.Entry(b)
+        e.pack()
+        entries.append(e)
+
+    def save():
+        if not fandom.get() or not q.get() or not correct.get() or any(not e.get() for e in entries):
+            tk.Label(b,text="Please fill in all fields!",fg="red",bg="white",font=("Arial",12)).pack()
+            return
+
+        if correct.get().upper() not in ["A","B","C","D"]:
+            tk.Label(b,text="Answer must be A, B, C, or D!",fg="red",bg="white",font=("Arial",12)).pack()
+            return
+
+        entry = (q.get(), (correct.get(),correct.get().lower(),correct.get()+".",correct.get().lower()+"." ))
+        ans = [f"{chr(65+i)}. {entries[i].get()}" for i in range(4)]
+
+        if fandom.get().upper()=="DC":
+            dcquestions.append(entry); dcanswers.append(ans)
+        elif fandom.get().upper()=="F1":
+            f1_questions.append(entry); f1_answers.append(ans)
+        elif fandom.get().upper()=="VALORANT":
+            valorant_questions.append(entry); valorant_answers.append(ans)
+        else:
+            tk.Label(b,text="Invalid fandom!",fg="red",bg="white",font=("Arial",12)).pack()
+            return
+
+        admin_menu()
+
+    tk.Button(b,text="Save Question",command=save,font=("Arial",14)).pack(pady=10)
+    tk.Button(b,text="Back",command=admin_menu,font=("Arial",14)).pack(pady=5)
+
+def remove_q():
+    clear()
+    set_bg("admin.png")
+    b = box()
+
+    tk.Label(b, text="Fandom (DC/F1/Valorant):", bg="white",font=("Arial",14)).pack()
+    fandom = tk.Entry(b)
+    fandom.pack()
+
+    question_var = tk.StringVar(b)
+    question_var.set("Select question")
+
+    dropdown = tk.OptionMenu(b, question_var, "")
+    dropdown.pack()
+
+    def load_questions():
+        fandom_name = fandom.get().upper()
+
+        if fandom_name == "DC":
+            questions = [f"{i}. {q[0]}" for i, q in enumerate(dcquestions)]
+        elif fandom_name == "F1":
+            questions = [f"{i}. {q[0]}" for i, q in enumerate(f1_questions)]
+        elif fandom_name == "VALORANT":
+            questions = [f"{i}. {q[0]}" for i, q in enumerate(valorant_questions)]
+        else:
+            tk.Label(b,text="Invalid fandom!",fg="red",bg="white",font=("Arial",12)).pack()
+            return
+
+        menu = dropdown["menu"]
+        menu.delete(0, "end")
+
+        for q in questions:
+            menu.add_command(label=q, command=lambda value=q: question_var.set(value))
+
+    def delete():
+        fandom_name = fandom.get().upper()
+        selected = question_var.get()
+
+        if selected == "Select question":
+            return
+
+        try:
+            index = int(selected.split(".")[0])
+        except:
+            return
+
+        if fandom_name == "DC":
+            dcquestions.pop(index); dcanswers.pop(index)
+        elif fandom_name == "F1":
+            f1_questions.pop(index); f1_answers.pop(index)
+        elif fandom_name == "VALORANT":
+            valorant_questions.pop(index); valorant_answers.pop(index)
+
+        admin_menu()
+
+    tk.Button(b, text="Load Questions", command=load_questions,font=("Arial",14)).pack(pady=5)
+    tk.Button(b, text="Delete Question", command=delete,font=("Arial",14)).pack(pady=5)
+    tk.Button(b,text="Back",command=admin_menu,font=("Arial",14)).pack(pady=5)
+
+def show_fandom():
+    clear()
+    set_bg("fandom.png")
+    b = box()
+    tk.Label(b,text="Choose a fandom: ",bg="white",font=("Arial",20)).pack(pady=10)
+    tk.Button(b,text="DC",command=lambda:start("DC"),font=("Arial",14)).pack(pady=5)
+    tk.Button(b,text="F1",command=lambda:start("F1"),font=("Arial",14)).pack(pady=5)
+    tk.Button(b,text="Valorant",command=lambda:start("VAL"),font=("Arial",14)).pack(pady=5)
+    tk.Button(b,text="Quit",command=quit_game,font=("Arial",14)).pack(pady=5)
+
+def start(f):
+    if f in completed_fandoms:
+        show_fandom()
+        return
+
+    if f=="DC":
+        set_bg("dc.png")
+        q,a = dcquestions,dcanswers
+    elif f=="F1":
+        set_bg("f1.png")
+        q,a = f1_questions,f1_answers
+    else:
+        set_bg("valorant.png")
+        q,a = valorant_questions,valorant_answers
+
+    order = list(range(len(q)))
+    random.shuffle(order)
+    ask(q,a,order,0,f)
+
+def ask(q,a,order,i,f):
+    if i>=len(order):
+        completed_fandoms.add(f)
+        show_fandom()
+        return
+
+    clear()
+    b = box()
+
+    idx = order[i]
+    tk.Label(b,text=q[idx][0],wraplength=800,bg="white",font=("Arial",18)).pack(pady=15)
+
+    def answer(choice):
+        global score,total_questions,dc_score,dc_total,f1_score,f1_total,valorant_score,valorant_total
+
+        total_questions += 1
+        correct_letter = q[idx][1][0]
+
+        if f=="DC": dc_total+=1
+        elif f=="F1": f1_total+=1
+        else: valorant_total+=1
+
+        is_correct = choice.strip().upper().startswith(correct_letter)
+
+        if is_correct:
+            score+=1
+            if f=="DC": dc_score+=1
+            elif f=="F1": f1_score+=1
+            else: valorant_score+=1
+
+        clear()
+        b2 = box()
+
+        if is_correct:
+            tk.Label(b2,text="Correct!",fg="green",bg="white",font=("Arial",16)).pack(pady=5)
+        else:
+            tk.Label(b2,text="Incorrect!",fg="red",bg="white",font=("Arial",16)).pack(pady=5)
+
+            for option in a[idx]:
+                if option.startswith(correct_letter):
+                    tk.Label(b2,text=f"Correct answer: {option}",bg="white",font=("Arial",14)).pack()
+
+        tk.Label(b2,text=f"Score: {score}/{total_questions}",bg="white",font=("Arial",14)).pack(pady=10)
+
+        tk.Button(b2,text="Next",command=lambda:ask(q,a,order,i+1,f),font=("Arial",14)).pack()
+
+    for c in a[idx]:
+        tk.Button(b,text=c,command=lambda x=c:answer(x),font=("Arial",14)).pack(fill="x", pady=5)
+
+def quit_game():
+    clear()
+    set_bg("quit.png")
+    b = box()
+
+    acc = (score/total_questions*100) if total_questions>0 else 0
+
+    tk.Label(b,text=f"DC: {dc_score}/{dc_total}",bg="white",font=("Arial",14)).pack()
+    tk.Label(b,text=f"F1: {f1_score}/{f1_total}",bg="white",font=("Arial",14)).pack()
+    tk.Label(b,text=f"Valorant: {valorant_score}/{valorant_total}",bg="white",font=("Arial",14)).pack()
+    tk.Label(b,text=f"Total: {score}/{total_questions}",bg="white",font=("Arial",14)).pack()
+    tk.Label(b,text=f"Accuracy: {acc:.2f}%",bg="white",font=("Arial",14)).pack()
+
+    tk.Button(b,text="Play Again",command=lambda:[reset_game(),show_start()],font=("Arial",14)).pack()
+    tk.Button(b,text="Exit",command=root.quit,font=("Arial",14)).pack()
+
+reset_game()
+show_start()
+root.mainloop()
