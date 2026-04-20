@@ -26,20 +26,35 @@ This is a gameshow about Dane and Emmy's fandoms and interests that cures boredo
 ## Example Output
    WELCOME TO DANE AND EMMY'S GAME SHOW QUIZ
 
+
 Play Game
+
 Admin
 
+
+
 Choose a fandom
+
 DC
+
 F1
+
 Valorant
+
 Quit
 
+
+
 Who is the first Robin?
+
 A. Robin Padilla
+
 B. Damian Wayne
+
 C. Jason Todd
+
 D. Dick Grayson
+
 
 Correct!
 Score: 1/1
