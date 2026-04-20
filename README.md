@@ -57,62 +57,118 @@ D. Dick Grayson
 
 
 Correct!
+
 Score: 1/1
+
 Next
+
+
 
 Who is Tim Drake's current partner?
+
 A. Stephanie Brown
+
 B. Bernard Dowd
+
 C. Kon-El
+
 D. Jason Todd
 
+
+
 Incorrect!
+
 Correct answer: B. Bernard Dowd
+
 Score: 1/2
+
 Next
+
 
 Who created Superboy (Kon-El)?
+
 A. Batman
+
 B. Lex Luthor
+
 C. Superman
+
 D. Lois Lane
 
+
+
 Correct!
+
 Score: 2/3
+
 Next
+
+
 
 Who is Diana's godly parent in the New 52 universe?
+
 A. Zeus
+
 B. Hades
+
 C. Apollo
+
 D. Hermes
 
+
+
 Correct! 
+
 Score: 3/4
+
 Next
+
+
 
 Who is Clark Kent's first love?
+
 A. Cassandra Cain
+
 B. Lois Lane
+
 C. Lana Lang
+
 D. Lauren Lida
 
+
+
 Correct!
+
 Score: 4/5
+
 Next
 
+
+
 Choose a fandom
+
 DC
+
 F1
+
 Valorant
+
 Quit
 
+
+
 DC: 4/5
+
 F1: 0/5
+
 Valorant: 0/5 
+
 Total: 4/5
+
 Accuracy: 80.00%
+
 Play Again
+
 Exit
 
 
